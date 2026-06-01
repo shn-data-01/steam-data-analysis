@@ -1,27 +1,34 @@
 # Steam Games Data Analysis (Python Complete Challenge)
 This repository showcases an end-to-end data analysis project focused on Steam games. The entire pipeline—from data loading and extensive cleaning to advanced visualization—was built strictly using Python (Pandas, Matplotlib, and Seaborn) without relying on external BI tools like Tableau or Excel.
 
+## 💾 Data Source
+This project utilizes a comprehensive dataset of Steam games sourced from Kaggle.
+
+* **Dataset Link:** [Kaggle - Steam Games Dataset](https://www.kaggle.com/datasets/ronaldofg/steam-games-dataset) *(Note: Please replace with your exact Kaggle URL if different)*
+* **Data Overview:** The dataset contains detailed information on over 100,000 games available on the Steam platform, including metrics such as pricing, genres, developer studios, positive/negative reviews, and required age limits.
+* **Context:** The raw data inherently contained noise, outliers, and missing fields. A crucial part of this project was engineering a robust preprocessing pipeline in Python to ensure data integrity before conducting statistical analysis and visualization.
+
 ## 📊 Visualizations & Insights
 
 ### 1. Top 10 Game Genres on Steam
-![Top 10 Genres](output/genre_ranking.png)
+![Top 10 Genres](genre_ranking.png)
 
 * **Market Saturation:** Excluding the 'Unknown' values (missing data handled during preprocessing), the market is heavily dominated by combined tags like **Casual, Indie**, and **Action**. 
 * **Strategic Takeaway:** The competition in these standard genres is extremely fierce. Developers aiming to stand out must look into more niche sub-genres or distinct cross-genre innovations rather than generic action-casual labels.
 
 ### 2. Price vs. Positive Reviews
-![Price vs. Positive Reviews](output/price_vs_positive.png)
+![Price vs. Positive Reviews](price_vs_positive.png)
 
 * **The F2P Powerhouse:** Looking at the leftmost edge (Price = $0), a single Free-to-Play title scales up to over 7 million positive reviews. F2P games have an exponentially higher ceiling for virality due to zero barriers to entry.
-* **Psychological Pricing Spikes:** Red dots (Paid games) are not distributed evenly; instead, they form vertical spikes precisely at standard marketing price points such as **$20, $40, $60, and $70**. 
+* **Psychological Pricing Spikes:** Premium games (represented by the red dots) are not distributed evenly across random values; instead, they form tight vertical spikes precisely at standard marketing price points such as **$20, $40, $60, and $70**. 
 * **Strategic Takeaway:** Pricing is purely psychological. Setting arbitrary fractional prices (e.g., $23.45) is a missed opportunity. Aligning with industry-standard price brackets is critical to match consumer expectations.
 
 ## 🛠️ Data Preprocessing & Cleansing
-To ensure the integrity of the charts above, the raw dataset underwent rigorous cleaning:
-1. **Outlier Removal:** Handled corrupted data in the `Required age` column (e.g., values showing 999 years old) and capped it logically.
-2. **Feature Engineering:** Added the `Is_Free` boolean flag column to seamlessly separate and compare free games against premium ones.
-3. **Missing Value Imputation:** Filled blank strings (`NaN`) in text columns with `'Unknown'` to prevent system errors during aggregation.
-4. **Text Parsing:** Split semicolon/comma-separated genre values into clean Python lists, allowing for accurate categorical counting.
+To ensure the accuracy of the charts above, the raw dataset underwent rigorous data cleaning entirely automated via Python:
+1. **Outlier Removal:** Identified and eliminated corrupted data in the `Required age` column (where some entries falsely showed "999 years old") and capped it logically at the maximum industry standard (18+).
+2. **Feature Engineering:** Created the `Is_Free` boolean flag column to seamlessly segment, filter, and compare free games against premium ones.
+3. **Missing Value Imputation:** Addressed empty cells (`NaN`) in textual columns (like Developers and Genres) by bulk-filling them with `'Unknown'` to prevent system execution errors during data aggregation.
+4. **Text Parsing & Tokenization:** Split semicolon/comma-separated genre values within single cells into clean, iterable Python lists, allowing for accurate, non-duplicated categorical counting.
 
 ## 💻 Tech Stack
 * Python 3.x
@@ -31,6 +38,13 @@ To ensure the integrity of the charts above, the raw dataset underwent rigorous 
 
 * # Steamゲームデータ分析（Python完結・前処理＆可視化チャレンジ）
 本プロジェクトは、Kaggleから取得したSteamのゲームデータを用い、データの読み込みから「泥臭いデータ前処理（クレンジング）」、そして「高度なグラフ化」までを、ExcelやTableauといった外部ツールに一切頼らず、Python（Pandas / Matplotlib / Seaborn）のコードのみで一気通貫で実装したポートフォリオです。
+
+## 💾 データソース（Data Source）
+本プロジェクトでは、データ分析プラットフォーム「Kaggle」で公開されている、膨大かつ詳細なSteamのゲームデータセットを使用しています。
+
+* **データ取得元:** [Kaggle - Steam Games Dataset](https://www.kaggle.com/datasets/ronaldofg/steam-games-dataset) ※もし別のURLなら差し替えてね！
+* **データの概要:** Steam上で配信されている10万件以上のゲームタイトルについて、価格、ジャンル、開発会社、ポジティブ/ネガティブ評価数、対象年齢などが網羅されたCSV形式のデータです。
+* **背景:** 本プロジェクトでは、この生データ（Raw Data）に含まれる異常値や表記の揺れをPythonによる前処理でクレンジングし、信頼性の高い統計および可視化を行っています。
 
 ## 📊 グラフ可視化とデータから得られた考察
 
