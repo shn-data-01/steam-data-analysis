@@ -36,6 +36,11 @@ To ensure the accuracy of the charts above, the raw dataset underwent rigorous d
 * Matplotlib
 * Seaborn
 
+## 📊 Interactive Dashboard (Tableau)
+You can interact with the dynamic charts and filter games by Free/Premium status here:
+👉 https://public.tableau.com/views/SteamGamesAnalysis_17803702060190/1?:language=ja-JP&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+
+
 * # Steamゲームデータ分析（Python完結・前処理＆可視化チャレンジ）
 本プロジェクトは、Kaggleから取得したSteamのゲームデータを用い、データの読み込みから「泥臭いデータ前処理（クレンジング）」、そして「高度なグラフ化」までを、ExcelやTableauといった外部ツールに一切頼らず、Python（Pandas / Matplotlib / Seaborn）のコードのみで一気通貫で実装したポートフォリオです。
 
